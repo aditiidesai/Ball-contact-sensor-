@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- Include the model -->
+    <include>
+      <uri>model://throwable_ball</uri>
+      <uri>model://ground_plane</uri>
+      <uri>model://sun</uri>
+    </include>
+    
+
+    <!-- Set the gravity -->
+    <physics name="default_physics" default="true" type="ode">
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+
+    <!-- Set the simulation time -->
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>-4.0 -4.0 2.0 0 0 0</pose>
+      </camera>
+    </gui>
+    <physics name="physics" default="1" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+  </world>
+</sdf>
