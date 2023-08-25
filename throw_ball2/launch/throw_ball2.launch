@@ -1,0 +1,14 @@
+<launch>
+  <!-- Launch Gazebo -->
+  <node name="gazebo" pkg="gazebo_ros" type="gazebo" args="$(arg world_file)" output="screen" />
+
+  <!-- Load the world file -->
+  <arg name="world_file" default="$(find throw_ball2)/worlds/throw_ball2.world" />
+
+  <!-- Add an SDF model -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-sdf -model throwable_ball -x 0.0 -y 0.0 -z 0.5 -file $(find throw_ball2)/sdf/model.sdf" />
+
+  <!-- Add the plugin node -->
+  <node name="throw_ball2_plugin" pkg="throw_ball2" type="throw_ball2_plugin.py" output="screen" />
+
+</launch>
