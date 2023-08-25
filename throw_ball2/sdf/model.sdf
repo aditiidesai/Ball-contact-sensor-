@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="throwable_ball">
+    <link name="ball_link">
+      <pose>0 0 0.5 0 0 0</pose>
+      <collision name="ball_collision">
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <contact>
+            <collide_bitmask>0xFFFFFFFF</collide_bitmask>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0.8</restitution_coefficient>
+            <threshold>0.0</threshold>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="ball_visual">
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 1.0 1.0</ambient>
+          <diffuse>0.0 0.0 1.0 1.0</diffuse>
+        </material>
+      </visual>
+      <sensor name='my_contact' type='contact'>
+          <contact>
+            <collision>ball_collision</collision>
+            <topic>/gazebo/default/throwable_ball/ball_link/my_contact</topic>
+            <update_rate> 10 </update_rate>
+          </contact>
+      </sensor>
+    </link>
+    <link name="box_link">
+      <pose>3 0 0 0 0 0</pose>
+      <collision name="box_collision">
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <collide_bitmask>0xFFFFFFFF</collide_bitmask>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0.8</restitution_coefficient>
+            <threshold>0.0</threshold>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="box_visual">
+        <geometry>
+          <box>
+            <size>0.3 0.3 0.3</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+          <diffuse>0.0 1.0 0.0 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
+
+
